@@ -1,14 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
+import React, { useRef } from 'react'
 
-import NxWelcome from './nx-welcome';
+import TaskList from './task-list';
+import { addTask } from '../store/task/task.actions';
+import AddTask from './add-task';
 
-export function App() {
-  return (
-    <div>
-      <NxWelcome title="mini-redux-home" />
-    </div>
-  );
+function App() {
+    
+
+    return (
+        <div>
+            <h1>Todo List</h1>
+            <AddTask />
+            <TaskList />
+        </div>
+    )
 }
 
 export default App;

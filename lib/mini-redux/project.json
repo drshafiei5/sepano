@@ -1,0 +1,41 @@
+{
+  "name": "mini-redux",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/mini-redux/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist\\{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/lib/mini-redux",
+        "main": "lib/mini-redux/src/index.ts",
+        "tsConfig": "lib/mini-redux/tsconfig.lib.json",
+        "assets": [],
+        "project": "lib/mini-redux/package.json",
+        "compiler": "swc",
+        "format": [
+          "cjs",
+          "esm"
+        ],
+        "skipTypeField": true
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist\\{projectRoot}"
+      }
+    }
+  }
+}
